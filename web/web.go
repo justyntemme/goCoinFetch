@@ -17,7 +17,7 @@ type coin struct {
 	Cticker   ticker `json:"ticker"`
 }
 
-func grabTicker(coinHandle string) string {
+func GrabTicker(coinHandle string) string {
 	price := ""
 
 	Ccoin := new(coin)
