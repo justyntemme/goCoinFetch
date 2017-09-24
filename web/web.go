@@ -22,7 +22,7 @@ func GrabTicker(coinHandle string) string {
 
 	Ccoin := new(coin)
 
-	resp, err := http.Get("https://api.nexchange.io/en/api/v1/price/" + coinHandle + "USD/?format=json")
+	resp, err := http.Get("https://api.nexchange.io/en/api/v1/price/" + coinHandle + "USD/latest?format=json")
 	if err != nil {
 		log.Fatal(err)
 	}
