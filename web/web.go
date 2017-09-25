@@ -20,17 +20,19 @@ type coin struct {
 func GrabTicker(coinHandle string) string {
 	price := ""
 
-	Ccoin := new(coin)
+	Ccoin := []coin{}
 
 	resp, err := http.Get("https://api.nexchange.io/en/api/v1/price/" + coinHandle + "USD/latest?format=json")
 	if err != nil {
+
 		log.Fatal(err)
 	}
 	err = json.NewDecoder(resp.Body).Decode(&Ccoin)
 	if err != nil {
+
 		log.Fatal(err)
 	}
 
-	price = "Ask: " + Ccoin.Cticker.Ask + " Bid: " + Ccoin.Cticker.Bid
+	price = "Ask: " + Ccoin[0].Cticker.Ask + " Bid: " + Ccoin[0].Cticker.Bid
 	return price
 }
